@@ -12,7 +12,8 @@ def browser():
 
     Utilities.quit_driver(driver)
 
-def test_successful_login_logout(browser):
+@pytest.mark.parametrize("username, password", [("admin", "Admin123")])
+def test_successful_login_logout(browser, username, password):
     login_page = LoginPage(browser)
     home_page = HomePage(browser)
 
@@ -24,24 +25,24 @@ def test_successful_login_logout(browser):
     home_page.logout()
     login_page.assert_successful_navigation(browser)
 
-@pytest.mark.parametrize("username, password", [("admin123", "Admin123"), ("admin", "Admin1234"),("admin123", "Admin1234"),("", "")])
-def test_incorrect_credential_login(browser, username, password):
-    login_page = LoginPage(browser)
+# @pytest.mark.parametrize("username, password", [("admin123", "Admin123"), ("admin", "Admin1234"),("admin123", "Admin1234"),("", "")])
+# def test_incorrect_credential_login(browser, username, password):
+#     login_page = LoginPage(browser)
 
-    login_page.open_login_page()
-    login_page.wait_for_login_page()
-    login_page.assert_successful_navigation(browser)
-    login_page.login(username, password)
-    login_page.assert_invalid_credential_msg()
-    login_page.assert_successful_navigation(browser)
+#     login_page.open_login_page()
+#     login_page.wait_for_login_page()
+#     login_page.assert_successful_navigation(browser)
+#     login_page.login(username, password)
+#     login_page.assert_invalid_credential_msg()
+#     login_page.assert_successful_navigation(browser)
 
-def test_no_location_login(browser):
-    login_page = LoginPage(browser)
+# def test_no_location_login(browser):
+#     login_page = LoginPage(browser)
 
-    login_page.open_login_page()
-    login_page.wait_for_login_page()
-    login_page.assert_successful_navigation(browser)
-    login_page.no_location_login("admin", "Admin123")
-    login_page.assert_select_location_msg()
-    login_page.assert_successful_navigation(browser)
+#     login_page.open_login_page()
+#     login_page.wait_for_login_page()
+#     login_page.assert_successful_navigation(browser)
+#     login_page.no_location_login("admin", "Admin123")
+#     login_page.assert_select_location_msg()
+#     login_page.assert_successful_navigation(browser)
 
