@@ -19,7 +19,7 @@ class LoginPage:
     def login(self, username, password):
         self.driver.find_element(*self.username_input).send_keys(username)
         self.driver.find_element(*self.password_input).send_keys(password)
-        self.driver.find_element(*self.location_button).click()
+        self.driver.find_element(*self.location_button).click()       
         self.driver.find_element(*self.login_button).click()
 
     def no_location_login(self, username, password):
