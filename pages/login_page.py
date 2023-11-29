@@ -1,10 +1,12 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utilities.common_utilities import Utilities
 
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
+        self.utils = Utilities()
         self.url = "https://demo.openmrs.org/openmrs/login.htm"
         self.username_input = (By.ID, "username")
         self.password_input = (By.ID, "password")
@@ -14,18 +16,23 @@ class LoginPage:
         self.location_not_selected_error_msg_text = (By.ID, "sessionLocationError")
 
     def open_login_page(self):
-        self.driver.get(self.url)
+        self.utils.custom_launch_url(self.driver,self.url)
 
     def login(self, username, password):
-        self.driver.find_element(*self.username_input).send_keys(username)
-        self.driver.find_element(*self.password_input).send_keys(password)
-        self.driver.find_element(*self.location_button).click()       
-        self.driver.find_element(*self.login_button).click()
+        self.utils.custom_fill_field(self.driver,self.username_input, username)
+        self.utils.custom_fill_field(self.driver,self.password_input, password)
+        self.utils.custom_click(self.driver,self.location_button)
+        self.utils.custom_click(self.driver,self.login_button)
+
+        # self.driver.find_element(*self.username_input).send_keys(username)
+        # self.driver.find_element(*self.password_input).send_keys(password)
+        # self.driver.find_element(*self.location_button).click()       
+        # self.driver.find_element(*self.login_button).click()
 
     def no_location_login(self, username, password):
-        self.driver.find_element(*self.username_input).send_keys(username)
-        self.driver.find_element(*self.password_input).send_keys(password)
-        self.driver.find_element(*self.login_button).click()
+        self.utils.custom_fill_field(self.driver,self.username_input, username)
+        self.utils.custom_fill_field(self.driver,self.password_input, password)
+        self.utils.custom_click(self.driver,self.login_button)
 
     def wait_for_login_page(self):
         WebDriverWait(self.driver, 10).until(

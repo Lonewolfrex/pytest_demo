@@ -959,3 +959,36 @@ console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message f
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
 console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1996\"  data: no]"
+1701282128193	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.9qVkJ4C01ZJL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1701282129007	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag -foreground\n"
+1701282129180	Marionette	INFO	Listening on port 46803
+JavaScript error: resource://gre/modules/addons/XPIInstall.jsm, line 685: Error: File resource://builtin-themes/resource://builtin-themes/dark/ does not contain a valid manifest
+1701282129436	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+1701282141242	Marionette	INFO	Stopped listening on port 46803
+1701282235400	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.qN21lZLbWOye"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1701282236134	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag -foreground\n"
+1701282236313	Marionette	INFO	Listening on port 43989
+JavaScript error: resource://gre/modules/addons/XPIInstall.jsm, line 685: Error: File resource://builtin-themes/resource://builtin-themes/dark/ does not contain a valid manifest
+1701282236460	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+console.error: ({})
+1701282245892	Marionette	INFO	Stopped listening on port 43989
+console.error: (new AbortError("IndexedDB: main/url-classifier-skip-urls list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.jsm", 18))
