@@ -24,11 +24,6 @@ class LoginPage:
         self.utils.custom_click(self.driver,self.location_button)
         self.utils.custom_click(self.driver,self.login_button)
 
-        # self.driver.find_element(*self.username_input).send_keys(username)
-        # self.driver.find_element(*self.password_input).send_keys(password)
-        # self.driver.find_element(*self.location_button).click()       
-        # self.driver.find_element(*self.login_button).click()
-
     def no_location_login(self, username, password):
         self.utils.custom_fill_field(self.driver,self.username_input, username)
         self.utils.custom_fill_field(self.driver,self.password_input, password)

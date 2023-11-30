@@ -1,9 +1,1 @@
-__pycache__/
-.pytest_cache/
 screenshots/
-*__pycache__
-chromedriver
-geckodriver
-pytest.ini
-logging_config.py
-geckodriver.log
