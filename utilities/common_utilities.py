@@ -11,7 +11,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.webdriver import WebDriver
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,7 +21,7 @@ class Utilities:
     def initialize_driver(browser_type="firefox"):
         if browser_type.lower() == "chrome":
             driver_path = os.environ.get("chrome_driver_path")
-            return webdriver.Chrome(executable_path=driver_path)
+            return webdriver.Chrome(service=Service(driver_path))
         elif browser_type.lower() == "firefox":
             driver_path = os.environ.get("firefox_driver_path")
             driver = webdriver.Firefox(executable_path=driver_path)
