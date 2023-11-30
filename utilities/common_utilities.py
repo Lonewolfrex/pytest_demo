@@ -12,16 +12,18 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.keys import Keys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Utilities:
-
     def initialize_driver(browser_type="firefox"):
         if browser_type.lower() == "chrome":
-            driver_path = "/home/parrot/Desktop/Demos/pytest_demo/chromedriver"
+            driver_path = os.environ.get("chrome_driver_path")
             return webdriver.Chrome(executable_path=driver_path)
         elif browser_type.lower() == "firefox":
-            driver_path = "/home/parrot/Desktop/Demos/pytest_demo/geckodriver"
-            driver = webdriver.Firefox(executable_path=driver_path)
+            driver_path = os.environ.get("firefox_driver_path")
+            driver = webdriver.Firefox(executable_path={driver_path})
         else:
             raise ValueError("Invalid browser type. Supported types: 'chrome' or 'firefox'")
             driver = NULL
@@ -49,8 +51,8 @@ class Utilities:
             print(f"Directory '{directory_path}' already exists.")        
 
     def combine_images(TC_name):
-        src_dir = "screenshots/"
-        dest_directory = "screenshots/"+TC_name
+        src_dir = os.environ.get("screenshot_path")
+        dest_directory = os.environ.get("screenshot_path")+TC_name
         file_name = TC_name+".png"
         # Create the destination directory with a timestamp
         timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')

@@ -2,7 +2,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utilities.common_utilities import Utilities
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
