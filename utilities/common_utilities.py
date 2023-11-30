@@ -23,7 +23,7 @@ class Utilities:
             return webdriver.Chrome(executable_path=driver_path)
         elif browser_type.lower() == "firefox":
             driver_path = os.environ.get("firefox_driver_path")
-            driver = webdriver.Firefox(executable_path={driver_path})
+            driver = webdriver.Firefox(executable_path=driver_path)
         else:
             raise ValueError("Invalid browser type. Supported types: 'chrome' or 'firefox'")
             driver = NULL
